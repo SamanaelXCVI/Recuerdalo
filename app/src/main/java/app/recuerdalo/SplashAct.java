@@ -12,8 +12,8 @@ public class SplashAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SystemClock.sleep(5000);
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Bienvenida.class);
         startActivity(intent);
-        finish(); // evitar regresar a éste activity
+        finish();
     }
 }
