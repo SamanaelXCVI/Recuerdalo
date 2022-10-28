@@ -14,89 +14,99 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/scv1"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnHints"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
+        app:layout_constraintVertical_bias="0.5">
 
-    <ScrollView
-        android:id="@+id/scv1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/tvTitulo"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47000003">
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Lista Recuerdos:"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <ListView
+            android:id="@+id/lvNombres"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <EditText
+            android:id="@+id/etNombres"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:ems="10"
+            android:hint="Escriba un nombre aqui para agregar o borrar"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
 
-            <TextView
-                android:id="@+id/tvNombre"
-                android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAgregar"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Lista Nombres:"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:backgroundTint="@color/Red"
+                android:onClick="Agregar"
+                android:text="Agregar" />
 
-            <ListView
-                android:id="@+id/lvNombres"
+            <Button
+                android:id="@+id/btnEliminar"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0" />
-
-            <EditText
-                android:id="@+id/etNombres"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Escriba un nombre aqui para agregar o borrar"
-                android:inputType="textPersonName"
-                android:minHeight="48dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnAgregar"
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/Red"
-                    android:onClick="Agregar"
-                    android:text="Agregar" />
-
-                <Button
-                    android:id="@+id/btnEliminar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="Borrar"
-                    android:text="Borrar" />
-            </LinearLayout>
-
+                android:onClick="Borrar"
+                android:text="Borrar"
+                tools:ignore="UsingOnClickInXml" />
         </LinearLayout>
-    </ScrollView>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnHints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="Hints"
-        android:text="Consejos"
+        android:text="@string/button1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnMaps"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/btnMaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="Maps"
+        android:text="@string/button2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnHints"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scv1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,5 +50,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(hints);
     }
 
+    public void Maps (View view){
+        Intent maps = new Intent(this, MapsActivity.class);
+        startActivity(maps);
+    }
+
 
 }
