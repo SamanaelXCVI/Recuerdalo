@@ -41,12 +41,6 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <ListView
-            android:id="@+id/lvNombres"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0" />
-
         <EditText
             android:id="@+id/etNombres"
             android:layout_width="match_parent"
@@ -60,16 +54,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnAgregar"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/Red"
                 android:onClick="Agregar"
-                android:text="Agregar" />
+                android:text="Agregar"
+                android:textSize="34sp" />
 
             <Button
                 android:id="@+id/btnEliminar"
@@ -78,7 +73,16 @@
                 android:layout_height="wrap_content"
                 android:onClick="Borrar"
                 android:text="Borrar"
+                android:textColor="@color/Red"
+                android:textSize="34sp"
                 tools:ignore="UsingOnClickInXml" />
+
+            <Button
+                android:id="@+id/btnRecuerdos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver Recuerdos"
+                android:textSize="34sp" />
         </LinearLayout>
 
     </LinearLayout>
