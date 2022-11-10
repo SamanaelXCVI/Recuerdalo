@@ -8,27 +8,26 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
-    private Button bt_Agregar, bt_Recuerdos, bt_Eliminar;
-    private EditText et1;
+    private Button bt_Agregar, bt_Recuerdos, bt_Eliminar,bt_Mapa, bt_Consejos;
+    private EditText etR ,etO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et1 = findViewById(R.id.etNombres);
+        etR = findViewById(R.id.etRecuerdos);
+        etO = findViewById(R.id.etOlvidar);
         bt_Agregar = findViewById(R.id.btnAgregar);
         bt_Recuerdos = findViewById(R.id.btnRecuerdos);
         bt_Eliminar = findViewById(R.id.btnEliminar);
+        bt_Mapa = findViewById(R.id.btnMaps);
+        bt_Consejos = findViewById(R.id.btnHints);
 
         bt_Agregar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +46,21 @@ public class MainActivity extends AppCompatActivity {
         bt_Eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                eliminar();
+                OlvidarRecuerdo();
+            }
+        });
+        bt_Mapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent hints = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(hints);
+            }
+        });
+        bt_Consejos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent maps = new Intent(getApplicationContext(), Recycler.class);
+                startActivity(maps);
             }
         });
     }
@@ -56,26 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void Borrar(View view){
-        /*recuerdos.remove(et1.getText().toString());
-        adapter.notifyDataSetChanged();*/
-        et1.setText("");
-
-    }
-
-    public void Hints (View view){
-        Intent hints = new Intent(this, Recycler.class);
-        startActivity(hints);
-    }
-
-    public void Maps (View view){
-        Intent maps = new Intent(this, MapsActivity.class);
-        startActivity(maps);
-    }
-
     public void AgregarRecuerdo(){
         try {
-            String recuerdos = et1.getText().toString();
+            String recuerdos = etR.getText().toString();
 
             SQLiteDatabase db = openOrCreateDatabase("BD_Recuerdalo", Context.MODE_PRIVATE,null);
             db.execSQL("CREATE TABLE IF NOT EXISTS recuerdos(id INTEGER PRIMARY KEY AUTOINCREMENT,recuerdos VARCHAR)");
@@ -85,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             statement.bindString(1,recuerdos);
             statement.execute();
             Toast.makeText(this,"Recuerdo agregado satisfactoriamente en la memoria.",Toast.LENGTH_LONG).show();
-            et1.setText("");
+            etR.setText("");
         }
         catch (Exception ex)
         {
@@ -93,24 +89,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void eliminar()
+    public void OlvidarRecuerdo()
     {
         try
         {
-            String recuerdos = et1.getText().toString();
+            String id = etO.getText().toString();
 
             SQLiteDatabase db = openOrCreateDatabase("BD_Recuerdalo", Context.MODE_PRIVATE,null);
 
 
-            String sql = "delete from recuerdos where recuerdos = ?";
+            String sql = "delete from recuerdos where id = ?";
             SQLiteStatement statement = db.compileStatement(sql);
 
-            statement.bindString(1,recuerdos);
+            statement.bindString(1,id);
             statement.execute();
             Toast.makeText(this,"El recuerdo ha sido olvidado.",Toast.LENGTH_LONG).show();
 
-            et1.setText("");
-            et1.requestFocus();
+            etO.setText("");
+            etO.requestFocus();
 
         }
         catch (Exception ex)

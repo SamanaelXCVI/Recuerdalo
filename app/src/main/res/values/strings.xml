@@ -14,4 +14,11 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="button1">Consejos</string>
     <string name="button2">Por si te pierdes</string>
+    <string name="ve_las_cosas_por_recordar_aqui">Ve las cosas por recordar aqui</string>
+    <string name="lista_recuerdos">Lista Recuerdos:</string>
+    <string name="escribe_un_recuerdo_que_no_quieres_olvidar">Escribe un recuerdo que no quieres olvidar</string>
+    <string name="recordar">Recordar</string>
+    <string name="ingresa_el_n_mero_del_recuerdo_a_olvidar">Ingresa el nùmero del recuerdo a olvidar</string>
+    <string name="olvidar">Olvidar</string>
+    <string name="ver_recuerdos">Ver Recuerdos</string>
 </resources>

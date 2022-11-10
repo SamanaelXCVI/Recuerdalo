@@ -10,7 +10,7 @@
         android:id="@+id/tvTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ve las cosas por recordar aqui"
+        android:text="@string/ve_las_cosas_por_recordar_aqui"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -35,21 +35,22 @@
         <TextView
             android:id="@+id/tvNombre"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Lista Recuerdos:"
+            android:text="@string/lista_recuerdos"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/etNombres"
+            android:id="@+id/etRecuerdos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Escriba un nombre aqui para agregar o borrar"
+            android:hint="@string/escribe_un_recuerdo_que_no_quieres_olvidar"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:textColorHint="#757575" />
+            android:textColorHint="#757575"
+            android:importantForAutofill="no" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,17 +63,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/Red"
-                android:onClick="Agregar"
-                android:text="Agregar"
+                android:text="@string/recordar"
+                android:textColor="#E1BEE7"
                 android:textSize="34sp" />
+
+            <EditText
+                android:id="@+id/etOlvidar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/ingresa_el_n_mero_del_recuerdo_a_olvidar"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:importantForAutofill="no" />
 
             <Button
                 android:id="@+id/btnEliminar"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="Borrar"
-                android:text="Borrar"
+                android:text="@string/olvidar"
                 android:textColor="@color/Red"
                 android:textSize="34sp"
                 tools:ignore="UsingOnClickInXml" />
@@ -81,7 +92,7 @@
                 android:id="@+id/btnRecuerdos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ver Recuerdos"
+                android:text="@string/ver_recuerdos"
                 android:textSize="34sp" />
         </LinearLayout>
 
@@ -91,7 +102,6 @@
         android:id="@+id/btnHints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="Hints"
         android:text="@string/button1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +114,6 @@
         android:id="@+id/btnMaps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="Maps"
         android:text="@string/button2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnHints"
