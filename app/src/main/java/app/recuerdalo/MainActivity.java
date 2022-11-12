@@ -7,13 +7,11 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button bt_Agregar, bt_Recuerdos, bt_Eliminar,bt_Mapa, bt_Consejos;
     private EditText etR ,etO;
 
     @Override
@@ -23,45 +21,31 @@ public class MainActivity extends AppCompatActivity {
 
         etR = findViewById(R.id.etRecuerdos);
         etO = findViewById(R.id.etOlvidar);
-        bt_Agregar = findViewById(R.id.btnAgregar);
-        bt_Recuerdos = findViewById(R.id.btnRecuerdos);
-        bt_Eliminar = findViewById(R.id.btnEliminar);
-        bt_Mapa = findViewById(R.id.btnMaps);
-        bt_Consejos = findViewById(R.id.btnHints);
+        Button bt_Agregar = findViewById(R.id.btnAgregar);
+        Button bt_Recuerdos = findViewById(R.id.btnRecuerdos);
+        Button bt_Eliminar = findViewById(R.id.btnEliminar);
+        Button bt_Mapa = findViewById(R.id.btnMaps);
+        Button bt_Consejos = findViewById(R.id.btnHints);
+        Button bt_Mensajes = findViewById(R.id.btnMensajes);
 
-        bt_Agregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AgregarRecuerdo();
-            }
-        });
-        bt_Recuerdos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent lrecuerdos = new Intent(getApplicationContext(), ListaRecuerdos.class);
-                startActivity(lrecuerdos);
+        bt_Agregar.setOnClickListener(v -> AgregarRecuerdo());
+        bt_Recuerdos.setOnClickListener(v -> {
+            Intent lrecuerdos = new Intent(getApplicationContext(), ListaRecuerdos.class);
+            startActivity(lrecuerdos);
 
-            }
         });
-        bt_Eliminar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                OlvidarRecuerdo();
-            }
+        bt_Eliminar.setOnClickListener(view -> OlvidarRecuerdo());
+        bt_Mapa.setOnClickListener(view -> {
+            Intent hints = new Intent(getApplicationContext(), MapsActivity.class);
+            startActivity(hints);
         });
-        bt_Mapa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent hints = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivity(hints);
-            }
+        bt_Consejos.setOnClickListener(view -> {
+            Intent maps = new Intent(getApplicationContext(), Recycler.class);
+            startActivity(maps);
         });
-        bt_Consejos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent maps = new Intent(getApplicationContext(), Recycler.class);
-                startActivity(maps);
-            }
+        bt_Mensajes.setOnClickListener(view -> {
+            Intent mensajes = new Intent(getApplicationContext(), Sensores.class);
+            startActivity(mensajes);
         });
     }
 
