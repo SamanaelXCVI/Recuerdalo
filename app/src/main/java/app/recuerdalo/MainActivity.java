@@ -7,17 +7,22 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
     private EditText etR ,etO;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAuth = FirebaseAuth.getInstance();
 
         etR = findViewById(R.id.etRecuerdos);
         etO = findViewById(R.id.etOlvidar);
@@ -27,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Button bt_Mapa = findViewById(R.id.btnMaps);
         Button bt_Consejos = findViewById(R.id.btnHints);
         Button bt_Mensajes = findViewById(R.id.btnMensajes);
+        Button bt_CSesión = findViewById(R.id.btnCerrarS);
 
         bt_Agregar.setOnClickListener(v -> AgregarRecuerdo());
         bt_Recuerdos.setOnClickListener(v -> {
@@ -46,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
         bt_Mensajes.setOnClickListener(view -> {
             Intent mensajes = new Intent(getApplicationContext(), Sensores.class);
             startActivity(mensajes);
+        });
+        bt_CSesión.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                finish();
+                startActivity(new Intent(MainActivity.this, Login.class));
+            }
         });
     }
 

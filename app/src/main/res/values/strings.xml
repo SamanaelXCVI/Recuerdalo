@@ -23,4 +23,6 @@
     <string name="ver_recuerdos">Ver Recuerdos</string>
     <string name="animo">Animo</string>
     <string name="saludo">HOLA</string>
+    <string name="button">Button</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
 </resources>

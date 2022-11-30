@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "563192002632",
+    "project_id": "recuerdalo-560cb",
+    "storage_bucket": "recuerdalo-560cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563192002632:android:d6d23d4f427db1452d807d",
+        "android_client_info": {
+          "package_name": "app.recuerdalo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563192002632-v1n3l4gcmg2gua57kf9sfb22prp3cnuc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFxORKZkr33_2qOlUge7TVylnL9FScDhg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563192002632-v1n3l4gcmg2gua57kf9sfb22prp3cnuc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

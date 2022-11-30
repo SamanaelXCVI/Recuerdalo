@@ -12,7 +12,7 @@ public class SplashAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SystemClock.sleep(5000);
-        Intent intent = new Intent(this, Bienvenida.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
         finish();
     }
